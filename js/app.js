@@ -1,7 +1,7 @@
 "use strict";
 
 const APP_VERSION = "1.2.1";
-const APP_BUILD_DATE = "2025-11-20";
+const APP_BUILD_DATE = "2026-11-20";
 const APP_BUILD_TIME = "09:48";
 
 const app = document.getElementById("app");
