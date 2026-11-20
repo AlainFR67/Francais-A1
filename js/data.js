@@ -708,6 +708,110 @@ const LESSONS = [
       },
     ],
   },
+  {
+    id: "culture-france",
+    title: "La France : culture et citoyenneté",
+    emoji: "🏛️",
+    theory: [
+      {
+        title: "La devise de la République",
+        body: "« Liberté, Égalité, Fraternité ». Elle est inscrite sur les bâtiments publics : mairies, écoles, passeports.",
+      },
+      {
+        title: "Les symboles de la France",
+        list: [
+          "Le drapeau : bleu, blanc, rouge (le « drapeau tricolore »).",
+          "L'hymne national : la Marseillaise.",
+          "La fête nationale : le 14 juillet (prise de la Bastille, 1789).",
+          "Marianne : le symbole de la République, son buste est dans les mairies.",
+          "Le coq : symbole sportif et traditionnel de la France.",
+        ],
+      },
+      {
+        title: "Les grandes dates de l'histoire",
+        list: [
+          "1789 : la Révolution française (prise de la Bastille le 14 juillet).",
+          "1889 : la Tour Eiffel est construite pour l'Exposition universelle.",
+          "1914-1918 : la Première Guerre mondiale.",
+          "1939-1945 : la Seconde Guerre mondiale ; le 8 mai 1945, fin de la guerre en Europe.",
+          "1958 : la Ve République (la Constitution actuelle).",
+        ],
+      },
+      {
+        title: "Les valeurs de la République",
+        list: [
+          "La liberté d'expression : dire son opinion.",
+          "L'égalité : mêmes droits pour tous et toutes.",
+          "La laïcité : la séparation de l'Église et de l'État ; la République ne reconnaît aucun culte.",
+          "La fraternité et la solidarité : s'entraider.",
+        ],
+      },
+      {
+        title: "Personnes célèbres",
+        list: [
+          "Victor Hugo : écrivain (Les Misérables, Notre-Dame de Paris).",
+          "Marie Curie : scientifique, deux prix Nobel (physique et chimie).",
+          "Charles de Gaulle : général de la Seconde Guerre mondiale, président de la République.",
+          "Claude Monet : peintre impressionniste.",
+          "Édith Piaf : chanteuse (« La Vie en rose »).",
+        ],
+      },
+    ],
+    vocab: [
+      { fr: "14 juillet", def: "la fête nationale française" },
+      { fr: "La Marseillaise", def: "l'hymne national de la France" },
+      { fr: "Liberté, Égalité, Fraternité", def: "la devise de la République française" },
+      { fr: "Marianne", def: "le symbole de la République dans les mairies" },
+      { fr: "1789", def: "l'année de la Révolution française" },
+      { fr: "la laïcité", def: "la séparation de l'Église et de l'État" },
+      { fr: "Victor Hugo", def: "l'écrivain des Misérables" },
+      { fr: "Marie Curie", def: "la scientifique avec deux prix Nobel" },
+      { fr: "Charles de Gaulle", def: "le général devenu président de la République" },
+      { fr: "la Tour Eiffel", def: "le monument parisien construit en 1889" },
+    ],
+    quiz: [
+      {
+        q: "Quelle est la devise de la France ?",
+        choices: ["Liberté, Égalité, Fraternité", "Travail, Famille, Patrie", "Dieu et mon droit"],
+        answer: 0,
+      },
+      {
+        q: "Le 14 juillet, on célèbre :",
+        choices: ["la fête de la musique", "la prise de la Bastille", "la victoire de 1945"],
+        answer: 1,
+      },
+      {
+        q: "Quel est l'hymne national de la France ?",
+        choices: ["La Vie en rose", "La Marseillaise", "Aux armes de Paris"],
+        answer: 1,
+      },
+      {
+        q: "Quelles sont les couleurs du drapeau français ?",
+        choices: ["rouge, blanc, noir", "blanc, rouge, vert", "bleu, blanc, rouge"],
+        answer: 2,
+      },
+      {
+        q: "La laïcité, c'est :",
+        choices: ["la séparation de l'Église et de l'État", "l'interdiction des cultes", "la religion officielle"],
+        answer: 0,
+      },
+      {
+        q: "En 1789, commence :",
+        choices: ["la Première Guerre mondiale", "la Révolution française", "la construction de la Tour Eiffel"],
+        answer: 1,
+      },
+      {
+        q: "Qui a écrit « Les Misérables » ?",
+        choices: ["Victor Hugo", "Jules Verne", "Édith Piaf"],
+        answer: 0,
+      },
+      {
+        q: "Marianne est :",
+        choices: ["une reine de France", "le symbole de la République", "une chanson populaire"],
+        answer: 1,
+      },
+    ],
+  }
 ];
 
 const PRONOUNS = [
@@ -716,14 +820,16 @@ const PRONOUNS = [
   { pronoun: "il / elle", key: "il" },
   { pronoun: "nous", key: "nous" },
   { pronoun: "vous", key: "vous" },
-  { pronoun: "ils / elles", key: "ils" },
+  { pronoun: "ils / elles", key: "ils" }
 ];
 
 const GROUP_LABELS = [
   "1er groupe (-er)",
   "2e groupe (finir)",
-  "3e groupe (irrégulier)",
+  "3e groupe (irrégulier)"
 ];
+
+
 
 const VERB_TABLES = {
   "être": { je: "suis", tu: "es", il: "est", nous: "sommes", vous: "êtes", ils: "sont" },

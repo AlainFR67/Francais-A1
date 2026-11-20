@@ -16,7 +16,7 @@ python3 -m http.server 8080
 
 ## Contenu
 
-9 leçons de niveau A1 :
+10 leçons de niveau A1 :
 
 1. Se présenter (salutations, questions de base)
 2. Les articles (le/la/les, un/une/des, possessifs, démonstratifs)
@@ -27,18 +27,20 @@ python3 -m http.server 8080
 7. Les 3 groupes de verbes au présent (synthèse)
 8. Les nombres et l'heure
 9. La vie quotidienne (jours, mois, lieux)
+10. La France : culture et citoyenneté (devise, symboles, dates et personnes célèbres — questions type test de nationalité)
 
 ## Fonctionnalités
 
 - **Cours** : règle claire + exemples pour chaque leçon
 - **Cartes mémoire** : mot → définition, à retourner, avec progression
 - **Quiz** : choix multiples, questions et réponses mélangées, résultat détaillé
-- **Examen final** : 20 questions tirées au sort dans les 9 leçons, thème indiqué à chaque question, meilleur score et nombre de tentatives enregistrés
+- **Examen final** : 20 questions tirées au sort dans les 10 leçons, thème indiqué à chaque question, meilleur score et nombre de tentatives enregistrés
 - **Progression** : meilleur score par leçon et cartes consultées, sauvegardés dans le navigateur (localStorage), sans compte ni serveur
 - **Numéro de version** affiché en bas de page pour vérifier que tu utilises la dernière version
 
 ## Versions
 
+- **1.6.0** (build du 2026-11-20 à 10:39 UTC) : leçon « La France : culture et citoyenneté » (devise, symboles, grandes dates, personnes célèbres)
 - **1.5.0** (build du 2026-11-20 à 10:30 UTC) : leçon « Les verbes du 3ème groupe (tous les autres) au présent » et titres des leçons de conjugaison renommés par groupe
 - **1.4.1** (build du 2026-11-20 à 10:19 UTC) : correction d'une question impossible du quiz « Articles » (possessif + complément « de Marie » ne peuvent pas se cumuler en français)
 - **1.4.0** (build du 2026-11-20 à 10:12 UTC) : générateur de questions — de nouvelles questions à chaque quiz et examen (253 questions disponibles)
