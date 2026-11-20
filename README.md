@@ -1,6 +1,6 @@
-# Révision Français A1 · A2 · B1 · B2
+# Français pour Alinda · A1 à B2
 
-Application web simple (HTML/CSS/JavaScript, sans dépendance) pour réviser le français aux niveaux A1, A2, B1 et B2 (CECRL). Un menu déroulant en haut de page permet de changer de niveau ; cours, quiz, examen et progression sont indépendants pour chaque niveau.
+**Français pour Alinda** : application web simple (HTML/CSS/JavaScript, sans dépendance) pour réviser le français aux niveaux A1, A2, B1 et B2 (CECRL). Un menu déroulant en haut de page permet de changer de niveau ; cours, quiz, examen et progression sont indépendants pour chaque niveau.
 
 ## Lancer l'application
 
@@ -54,7 +54,7 @@ python3 -m http.server 8080
 
 ## Fonctionnalités
 
-- **Niveaux (A1 / A2 / B1)** : menu déroulant en haut de page ; le niveau est mémorisé et s'applique aux cours, cartes, quiz, examen et progression
+- **Niveaux (A1 / A2 / B1 / B2)** : menu déroulant en haut de page ; le niveau est mémorisé et s'applique aux cours, cartes, quiz, examen et progression
 - **Cours** : règle claire + exemples pour chaque leçon
 - **Cartes mémoire** : mot → définition, à retourner, avec progression
 - **Quiz** : choix multiples, questions et réponses mélangées, questions générées à partir des tableaux de conjugaison et du vocabulaire, résultat détaillé
@@ -65,6 +65,7 @@ python3 -m http.server 8080
 
 ## Versions
 
+- **2.3.0** (build du 2026-11-20 à 14:51 UTC) : l'application s'appelle désormais « **Français pour Alinda** » (titre de page, en-tête) ; le pied de page précise la couverture complète des niveaux A1 → B2 (CECRL)
 - **2.2.0** (build du 2026-11-20 à 13:22 UTC) : ajout du niveau B2 (le subjonctif présent, le discours rapporté, module de vocabulaire « idées et langue soutenue ») et banques de vocabulaire portées à 200 mots par niveau (800 mots au total, 10 tirés au sort à chaque chargement)
 - **2.1.0** (build du 2026-11-20 à 13:05 UTC) : banques de 100 mots de vocabulaire par niveau (300 mots au total), dont 10 tirés au sort à chaque chargement de la page pour les cartes mémoire et le quiz du module vocabulaire
 - **2.0.0** (build du 2026-11-20 à 11:15 UTC) : sélecteur de niveau A1/A2/B1 avec 9 nouvelles leçons (5 A2 : passé composé avec avoir/être, futur proche, pronoms compléments, ville et sorties ; 4 B1 : imparfait, futur simple, pronoms relatifs, opinions et connecteurs), examens et progression par niveau
