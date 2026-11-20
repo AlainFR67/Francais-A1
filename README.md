@@ -33,3 +33,11 @@ python3 -m http.server 8080
 - **Cartes mémoire** : mot → définition, à retourner, avec progression
 - **Quiz** : choix multiples, questions et réponses mélangées, résultat détaillé
 - **Progression** : meilleur score par leçon et cartes consultées, sauvegardés dans le navigateur (localStorage), sans compte ni serveur
+- **Numéro de version** affiché en bas de page pour vérifier que tu utilises la dernière version
+
+## Versions
+
+- **1.2.0** (build du 2025-11-20) : numéro de version affiché en pied de page
+- **1.1.0** (build du 2025-11-20) : ajout des leçons « Verbes en -ir » et « Les 3 groupes de verbes »
+- **1.0.1** (build du 2025-11-20) : correction de l'enregistrement des quiz dans la progression
+- **1.0.0** (build du 2025-11-20) : première version (6 leçons, cartes mémoire, quiz, progression)

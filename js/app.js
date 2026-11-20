@@ -1,5 +1,8 @@
 "use strict";
 
+const APP_VERSION = "1.2.0";
+const APP_BUILD_DATE = "2025-11-20";
+
 const app = document.getElementById("app");
 const tabs = document.querySelectorAll(".tab");
 
@@ -44,6 +47,11 @@ function setView(view) {
 tabs.forEach((t) =>
   t.addEventListener("click", () => setView(t.dataset.view))
 );
+
+function initVersion() {
+  const elv = document.getElementById("app-version");
+  if (elv) elv.textContent = `Version ${APP_VERSION} · build du ${APP_BUILD_DATE}`;
+}
 
 function esc(str) {
   const div = document.createElement("div");
@@ -366,4 +374,5 @@ function renderProgress() {
   `;
 }
 
+initVersion();
 render();
