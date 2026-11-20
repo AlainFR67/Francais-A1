@@ -307,6 +307,166 @@ const LESSONS = [
     ],
   },
   {
+    id: "verbes-ir",
+    title: "Les verbes en -ir au présent",
+    emoji: "🚀",
+    theory: [
+      {
+        title: "Le modèle « finir »",
+        body: "Je finis / tu finis / il, elle finit / nous finissons / vous finissez / ils, elles finissent.",
+      },
+      {
+        title: "Comment conjuguer ?",
+        body: "On enlève « -ir » de l'infinitif et on ajoute les terminaisons : -is, -is, -it, -issons, -issez, -issent.",
+      },
+      {
+        title: "Attention !",
+        body: "Tous les verbes en -ir ne sont pas du 2e groupe : partir, venir, sortir et dormir sont du 3e groupe. Un vrai verbe du 2e groupe fait « -issons » avec « nous » (nous finissons, nous choisissons).",
+      },
+      {
+        title: "Verbes du même type",
+        list: [
+          "choisir → je choisis",
+          "grandir → nous grandissons",
+          "réfléchir → vous réfléchissez",
+          "obéir → ils obéissent",
+          "réussir → tu réussis",
+        ],
+      },
+    ],
+    vocab: [
+      { fr: "finir", def: "arriver à la fin de quelque chose" },
+      { fr: "choisir", def: "prendre une décision, sélectionner" },
+      { fr: "grandir", def: "devenir plus grand" },
+      { fr: "réfléchir", def: "penser avant de décider" },
+      { fr: "obéir", def: "faire ce que quelqu'un demande" },
+      { fr: "réussir", def: "obtenir un bon résultat" },
+      { fr: "nous finissons", def: "conjugaison de finir à la 1re personne du pluriel" },
+      { fr: "vous finissez", def: "conjugaison de finir à la 2e personne du pluriel" },
+    ],
+    quiz: [
+      {
+        q: "Je ___ mon dessert. (finir)",
+        choices: ["finis", "finit", "finissez"],
+        answer: 0,
+      },
+      {
+        q: "Nous ___ la leçon. (finir)",
+        choices: ["finissons", "finissez", "finissent"],
+        answer: 0,
+      },
+      {
+        q: "Vous ___ une pizza. (choisir)",
+        choices: ["choisis", "choisissez", "choisissent"],
+        answer: 1,
+      },
+      {
+        q: "Les enfants ___ vite. (grandir)",
+        choices: ["grandit", "grandissez", "grandissent"],
+        answer: 2,
+      },
+      {
+        q: "Tu ___ avant de répondre. (réfléchir)",
+        choices: ["réfléchis", "réfléchit", "réfléchissez"],
+        answer: 0,
+      },
+      {
+        q: "Terminaison de « nous » pour un verbe du 2e groupe :",
+        choices: ["-issons", "-issez", "-issent"],
+        answer: 0,
+      },
+      {
+        q: "Quel verbe n'est PAS du 2e groupe ?",
+        choices: ["choisir", "réussir", "partir"],
+        answer: 2,
+      },
+      {
+        q: "Marie ___ ses devoirs. (finir)",
+        choices: ["finis", "finit", "finissent"],
+        answer: 1,
+      },
+    ],
+  },
+  {
+    id: "trois-groupes",
+    title: "Les 3 groupes de verbes",
+    emoji: "🎯",
+    theory: [
+      {
+        title: "1er groupe : les verbes en -er",
+        body: "C'est le plus grand groupe : parler, manger, habiter, aimer… Ils sont tous réguliers (parl-ons, mang-ons).",
+      },
+      {
+        title: "2e groupe : les verbes en -ir type « finir »",
+        body: "finir, choisir, grandir… Terminaisons : -is, -is, -it, -issons, -issez, -issent.",
+      },
+      {
+        title: "3e groupe : les verbes irréguliers",
+        body: "aller, faire, venir, partir, pouvoir, vouloir… Il faut les apprendre par cœur. Aller : je vais, tu vas, il va, nous allons, vous allez, ils vont. Faire : je fais, tu fais, il fait, nous faisons, vous faites, ils font.",
+      },
+      {
+        title: "Comment reconnaître le groupe ?",
+        list: [
+          "L'infinitif en -er → 1er groupe",
+          "L'infinitif en -ir et « nous » en -issons → 2e groupe",
+          "Tous les autres (-re, -ir comme partir, -ir comme venir) → 3e groupe",
+        ],
+      },
+    ],
+    vocab: [
+      { fr: "aller", def: "se déplacer vers un lieu (3e groupe)" },
+      { fr: "faire", def: "effectuer une action (3e groupe)" },
+      { fr: "venir", def: "arriver depuis un lieu (3e groupe)" },
+      { fr: "partir", def: "quitter un lieu (3e groupe)" },
+      { fr: "pouvoir", def: "avoir la capacité de (3e groupe)" },
+      { fr: "vouloir", def: "désirer quelque chose (3e groupe)" },
+      { fr: "nous faisons", def: "conjugaison de faire avec « nous »" },
+      { fr: "vous allez", def: "conjugaison de aller avec « vous »" },
+    ],
+    quiz: [
+      {
+        q: "« Parler » appartient au :",
+        choices: ["1er groupe", "2e groupe", "3e groupe"],
+        answer: 0,
+      },
+      {
+        q: "« Finir » appartient au :",
+        choices: ["1er groupe", "2e groupe", "3e groupe"],
+        answer: 1,
+      },
+      {
+        q: "« Aller » appartient au :",
+        choices: ["1er groupe", "2e groupe", "3e groupe"],
+        answer: 2,
+      },
+      {
+        q: "Je ___ à l'école. (aller)",
+        choices: ["va", "vais", "vas"],
+        answer: 1,
+      },
+      {
+        q: "Nous ___ du vélo. (faire)",
+        choices: ["faisons", "faites", "font"],
+        answer: 0,
+      },
+      {
+        q: "Ils ___ au cinéma. (aller)",
+        choices: ["vont", "allons", "vont être"],
+        answer: 0,
+      },
+      {
+        q: "Vous ___ le ménage. (faire)",
+        choices: ["faisons", "font", "faites"],
+        answer: 2,
+      },
+      {
+        q: "Un verbe du 2e groupe fait avec « nous » :",
+        choices: ["-ons", "-issons", "-ez"],
+        answer: 1,
+      },
+    ],
+  },
+  {
     id: "nombres",
     title: "Les nombres et l'heure",
     emoji: "🔢",
