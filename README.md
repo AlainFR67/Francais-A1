@@ -16,28 +16,30 @@ python3 -m http.server 8080
 
 ## Contenu
 
-8 leçons de niveau A1 :
+9 leçons de niveau A1 :
 
 1. Se présenter (salutations, questions de base)
 2. Les articles (le/la/les, un/une/des, possessifs, démonstratifs)
 3. Être et avoir (conjugaison au présent)
-4. Les verbes en -er au présent
-5. Les verbes en -ir au présent (2ᵉ groupe)
-6. Les 3 groupes de verbes (dont aller, faire et les verbes irréguliers du 3ᵉ groupe)
-7. Les nombres et l'heure
-8. La vie quotidienne (jours, mois, lieux)
+4. Les verbes du 1er groupe (-er) au présent
+5. Les verbes du 2ème groupe (-ir) au présent
+6. Les verbes du 3ème groupe (tous les autres) au présent (aller, faire, venir, pouvoir, vouloir, partir)
+7. Les 3 groupes de verbes au présent (synthèse)
+8. Les nombres et l'heure
+9. La vie quotidienne (jours, mois, lieux)
 
 ## Fonctionnalités
 
 - **Cours** : règle claire + exemples pour chaque leçon
 - **Cartes mémoire** : mot → définition, à retourner, avec progression
 - **Quiz** : choix multiples, questions et réponses mélangées, résultat détaillé
-- **Examen final** : 20 questions tirées au sort dans les 8 leçons, thème indiqué à chaque question, meilleur score et nombre de tentatives enregistrés
+- **Examen final** : 20 questions tirées au sort dans les 9 leçons, thème indiqué à chaque question, meilleur score et nombre de tentatives enregistrés
 - **Progression** : meilleur score par leçon et cartes consultées, sauvegardés dans le navigateur (localStorage), sans compte ni serveur
 - **Numéro de version** affiché en bas de page pour vérifier que tu utilises la dernière version
 
 ## Versions
 
+- **1.5.0** (build du 2026-11-20 à 10:30 UTC) : leçon « Les verbes du 3ème groupe (tous les autres) au présent » et titres des leçons de conjugaison renommés par groupe
 - **1.4.1** (build du 2026-11-20 à 10:19 UTC) : correction d'une question impossible du quiz « Articles » (possessif + complément « de Marie » ne peuvent pas se cumuler en français)
 - **1.4.0** (build du 2026-11-20 à 10:12 UTC) : générateur de questions — de nouvelles questions à chaque quiz et examen (253 questions disponibles)
 - **1.3.0** (build du 2026-11-20 à 09:58 UTC) : mode « Examen final » (20 questions mélangées des 8 leçons, thème par question, tentatives comptées)

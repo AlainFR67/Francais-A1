@@ -1,8 +1,8 @@
 "use strict";
 
-const APP_VERSION = "1.4.1";
+const APP_VERSION = "1.5.0";
 const APP_BUILD_DATE = "2026-11-20";
-const APP_BUILD_TIME = "10:19";
+const APP_BUILD_TIME = "10:30";
 const EXAM_QUESTION_COUNT = 20;
 const EXAM_ID = "examen-final";
 const QUIZ_LENGTH = 10;

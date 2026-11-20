@@ -233,7 +233,7 @@ const LESSONS = [
   {
     id: "verbes-er",
     genVerbs: ["parler", "habiter", "aimer", "jouer", "écouter", "étudier", "travailler", "manger"],
-    title: "Les verbes en -er au présent",
+    title: "Les verbes du 1er groupe (-er) au présent",
     emoji: "✏️",
     theory: [
       {
@@ -311,7 +311,7 @@ const LESSONS = [
   {
     id: "verbes-ir",
     genVerbs: ["finir", "choisir", "grandir", "réfléchir", "réussir", "obéir"],
-    title: "Les verbes en -ir au présent",
+    title: "Les verbes du 2ème groupe (-ir) au présent",
     emoji: "🚀",
     theory: [
       {
@@ -391,10 +391,95 @@ const LESSONS = [
     ],
   },
   {
+    id: "verbes-3e-groupe",
+    title: "Les verbes du 3ème groupe (tous les autres) au présent",
+    emoji: "⚡",
+    genVerbs: ["aller", "faire", "venir"],
+    theory: [
+      {
+        title: "Le verbe aller",
+        body: "Je vais / tu vas / il, elle va / nous allons / vous allez / ils, elles vont.",
+      },
+      {
+        title: "Le verbe faire",
+        body: "Je fais / tu fais / il, elle fait / nous faisons / vous faites / ils, elles font.",
+      },
+      {
+        title: "Le verbe venir",
+        body: "Je viens / tu viens / il, elle vient / nous venons / vous venez / ils, elles viennent.",
+      },
+      {
+        title: "Les autres verbes usuels",
+        list: [
+          "pouvoir → je peux, tu peux, il peut, nous pouvons, vous pouvez, ils peuvent",
+          "vouloir → je veux, tu veux, il veut, nous voulons, vous voulez, ils veulent",
+          "partir → je pars, tu pars, il part, nous partons, vous partez, ils partent",
+        ],
+      },
+      {
+        title: "À retenir",
+        body: "Les verbes du 3ème groupe sont irréguliers : il faut mémoriser chaque modèle (aller, faire, venir…). Beaucoup font « -s, -s, -t » au singulier, mais les formes de « nous » et « vous » ressemblent souvent à l'infinitif (nous ven-ons, vous ven-ez).",
+      },
+    ],
+    vocab: [
+      { fr: "aller", def: "se déplacer vers un lieu" },
+      { fr: "faire", def: "effectuer une action" },
+      { fr: "venir", def: "arriver depuis un lieu" },
+      { fr: "partir", def: "quitter un lieu" },
+      { fr: "pouvoir", def: "avoir la capacité ou la permission de" },
+      { fr: "vouloir", def: "désirer quelque chose" },
+      { fr: "nous allons", def: "conjugaison de aller avec « nous »" },
+      { fr: "vous faites", def: "conjugaison de faire avec « vous »" },
+    ],
+    quiz: [
+      {
+        q: "Je ___ à l'école. (aller)",
+        choices: ["va", "vais", "vas"],
+        answer: 1,
+      },
+      {
+        q: "Vous ___ vos devoirs. (faire)",
+        choices: ["faites", "faisons", "font"],
+        answer: 0,
+      },
+      {
+        q: "Ils ___ au cinéma. (aller)",
+        choices: ["allons", "vont", "vas"],
+        answer: 1,
+      },
+      {
+        q: "Tu ___ d'où ? (venir)",
+        choices: ["viens", "vient", "venez"],
+        answer: 0,
+      },
+      {
+        q: "J'___ rester à la maison. (vouloir)",
+        choices: ["veux", "veut", "voulons"],
+        answer: 0,
+      },
+      {
+        q: "Elle ___ aller à Lyon. (pouvoir)",
+        choices: ["peux", "pouvons", "peut"],
+        answer: 2,
+      },
+      {
+        q: "Nous ___ à huit heures. (partir)",
+        choices: ["pars", "partons", "partent"],
+        answer: 1,
+      },
+      {
+        q: "On ___ du vélo. (faire)",
+        choices: ["fait", "fais", "faites"],
+        answer: 0,
+      },
+    ],
+  },
+  {
+    id: "trois-groupes",
     id: "trois-groupes",
     genVerbs: ["aller", "faire", "venir"],
     genGroups: true,
-    title: "Les 3 groupes de verbes",
+    title: "Les 3 groupes de verbes au présent",
     emoji: "🎯",
     theory: [
       {
