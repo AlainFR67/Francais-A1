@@ -37,6 +37,7 @@ python3 -m http.server 8080
 
 ## Versions
 
+- **1.2.3** (build du 2026-11-20 à 09:54 UTC) : correctif anti-cache — les fichiers portent maintenant la version dans leur URL (?v=1.2.3)
 - **1.2.2** (build du 2026-11-20 à 09:50 UTC) : mention « Application suggérée par Alain et créée par son ami » en pied de page
 - **1.2.1** (build du 2026-11-20 à 09:48 UTC) : heure du build affichée en pied de page
 - **1.2.0** (build du 2026-11-20 à 09:35 UTC) : numéro de version affiché en pied de page
