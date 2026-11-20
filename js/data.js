@@ -139,7 +139,7 @@ const LESSONS = [
         answer: 1,
       },
       {
-        q: "C'est ___ voiture de Marie. (féminin, possessif)",
+        q: "C'est ___ voiture. (féminin, possessif)",
         choices: ["mon", "ma", "mes"],
         answer: 1,
       },
