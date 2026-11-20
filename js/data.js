@@ -858,3 +858,697 @@ const VERB_GROUPS = {
   "finir": 1, "choisir": 1, "grandir": 1, "réfléchir": 1, "réussir": 1, "obéir": 1,
   "aller": 2, "faire": 2, "venir": 2, "partir": 2, "sortir": 2, "dormir": 2,
 };
+
+const A2_LESSONS = [
+  {
+    id: "a2-passe-compose-avoir",
+    title: "Le passé composé avec avoir",
+    emoji: "🕐",
+    theory: [
+      {
+        title: "Comment le former ?",
+        body: "avoir au présent + participe passé. J'ai parlé / tu as fini / il a vendu / nous avons regardé / vous avez choisi / ils ont entendu.",
+      },
+      {
+        title: "Les participes passés",
+        list: [
+          "-er → -é : parler → parlé, regarder → regardé",
+          "-ir → -i : finir → fini, choisir → choisi",
+          "-re → -u : vendre → vendu, entendre → entendu",
+          "Iréguliers courants : faire → fait, prendre → pris, mettre → mis, ouvrir → ouvert",
+        ],
+      },
+      {
+        title: "La négation",
+        body: "La négation entoure l'auxiliaire : « Je n'ai pas vu ce film », « Elle n'a jamais voyagé. »",
+      },
+      {
+        title: "Quand l'utiliser ?",
+        body: "Pour une action terminée et datée : « Hier, j'ai mangé au restaurant », « La semaine dernière, nous avons visité un musée. »",
+      },
+    ],
+    vocab: [
+      { fr: "j'ai parlé", def: "passé composé de « parler » (1ère personne)" },
+      { fr: "tu as fini", def: "passé composé de « finir » (2ème personne)" },
+      { fr: "il a vendu", def: "passé composé de « vendre » (3ème personne)" },
+      { fr: "hier", def: "le jour précédent" },
+      { fr: "la semaine dernière", def: "la semaine qui précède" },
+      { fr: "déjà", def: "avant maintenant" },
+    ],
+    quiz: [
+      {
+        q: "Hier, j'___ mangé une pizza.",
+        choices: ["ai", "as", "a"],
+        answer: 0,
+      },
+      {
+        q: "Nous avons ___ le film. (regarder)",
+        choices: ["regardé", "regarder", "regardions"],
+        answer: 0,
+      },
+      {
+        q: "Tu as ___ tes devoirs ? (finir)",
+        choices: ["fini", "finir", "finissais"],
+        answer: 0,
+      },
+      {
+        q: "Il a ___ la porte. (fermer)",
+        choices: ["fermé", "fermer", "fermais"],
+        answer: 0,
+      },
+      {
+        q: "Je n'ai ___ vu ce film.",
+        choices: ["pas", "très", "beaucoup"],
+        answer: 0,
+      },
+      {
+        q: "Le participe passé de « prendre » est :",
+        choices: ["pris", "prené", "prendu"],
+        answer: 0,
+      },
+      {
+        q: "Elle a ___ les clés. (perdre)",
+        choices: ["perdu", "perdre", "perdait"],
+        answer: 0,
+      },
+      {
+        q: "Le participe passé de « vendre » est :",
+        choices: ["vendu", "vendé", "vendi"],
+        answer: 0,
+      },
+    ],
+  },
+  {
+    id: "a2-passe-compose-etre",
+    title: "Le passé composé avec être",
+    emoji: "🚶",
+    theory: [
+      {
+        title: "Comment le former ?",
+        body: "être au présent + participe passé, avec accord. Je suis allé / elle est allée / nous sommes partis / elles sont arrivées.",
+      },
+      {
+        title: "Verbes de mouvement et changement d'état",
+        list: [
+          "aller, venir, arriver, partir, entrer, sortir",
+          "monter, descendre, naître, mourir, rester, tomber",
+          "les verbes pronominaux : se lever → je me suis levé(e)",
+        ],
+      },
+      {
+        title: "L'accord du participe",
+        body: "Avec « être », le participe s'accorde comme un adjectif : au féminin on ajoute « -e » (elle est arrivée), au pluriel « -s » (ils sont partis), féminin pluriel « -es » (elles sont arrivées).",
+      },
+    ],
+    vocab: [
+      { fr: "je suis allé(e)", def: "passé composé de « aller » avec être" },
+      { fr: "elle est arrivée", def: "participe passé accordé au féminin" },
+      { fr: "ils sont partis", def: "participe passé accordé au masculin pluriel" },
+      { fr: "hier soir", def: "le soir précédent" },
+      { fr: "ce matin", def: "la matinée d'aujourd'hui" },
+      { fr: "arriver", def: "venir à un endroit" },
+    ],
+    quiz: [
+      {
+        q: "Hier, je suis ___ au cinéma. (aller, un homme)",
+        choices: ["allé", "allée", "aller"],
+        answer: 0,
+      },
+      {
+        q: "Elle est ___ à 8 heures. (arriver, une femme)",
+        choices: ["arrivé", "arrivée", "arriver"],
+        answer: 1,
+      },
+      {
+        q: "Nous sommes ___ en vacances. (partir)",
+        choices: ["partis", "parti", "partions"],
+        answer: 0,
+      },
+      {
+        q: "Ils sont ___ chez Paul. (venir)",
+        choices: ["venus", "venu", "venaient"],
+        answer: 0,
+      },
+      {
+        q: "Avec « aller », « partir », « sortir », on utilise :",
+        choices: ["être", "avoir", "faire"],
+        answer: 0,
+      },
+      {
+        q: "Au féminin, le participe passé prend :",
+        choices: ["-e", "-s", "-er"],
+        answer: 0,
+      },
+      {
+        q: "Tu es ___ avant moi. (sortir)",
+        choices: ["sorti", "sortis", "sortie"],
+        answer: 0,
+      },
+      {
+        q: "Elles ___ contentes hier. (être)",
+        choices: ["ont été", "sont été", "ont étés"],
+        answer: 0,
+      },
+    ],
+  },
+  {
+    id: "a2-futur-proche",
+    title: "Le futur proche",
+    emoji: "⏭️",
+    theory: [
+      {
+        title: "Comment le former ?",
+        body: "aller au présent + infinitif. Je vais parler / tu vas finir / il va partir / nous allons sortir / vous allez manger / ils vont arriver.",
+      },
+      {
+        title: "La négation",
+        body: "La négation entoure « aller » : « Je ne vais pas travailler », « Nous n'allons pas sortir. »",
+      },
+      {
+        title: "Quand l'utiliser ?",
+        body: "Pour une action prévue bientôt : « Ce soir, je vais regarder un film », « Tout à l'heure, elle va appeler sa mère. »",
+      },
+    ],
+    vocab: [
+      { fr: "je vais parler", def: "futur proche de « parler » (1ère personne)" },
+      { fr: "nous allons sortir", def: "futur proche de « sortir » (1ère personne du pluriel)" },
+      { fr: "demain", def: "le jour suivant" },
+      { fr: "tout à l'heure", def: "dans un court instant" },
+      { fr: "ce soir", def: "le soir d'aujourd'hui" },
+      { fr: "l'infinitif", def: "la forme du verbe sans conjugaison (parler, finir)" },
+    ],
+    quiz: [
+      {
+        q: "Demain, je ___ visiter le musée.",
+        choices: ["vais", "va", "aller"],
+        answer: 0,
+      },
+      {
+        q: "Tu ___ partir ce soir ?",
+        choices: ["vas", "va", "allez"],
+        answer: 0,
+      },
+      {
+        q: "Nous allons ___ un film. (regarder)",
+        choices: ["regarder", "regardé", "regardons"],
+        answer: 0,
+      },
+      {
+        q: "Ils vont ___ à Paris. (aller)",
+        choices: ["aller", "allés", "vont"],
+        answer: 0,
+      },
+      {
+        q: "Le futur proche utilise :",
+        choices: ["aller + infinitif", "avoir + participe passé", "être + infinitif"],
+        answer: 0,
+      },
+      {
+        q: "Négation : « Je ne ___ pas travailler. »",
+        choices: ["vais", "va", "aller"],
+        answer: 0,
+      },
+      {
+        q: "Elle va ___. (finir)",
+        choices: ["finir", "fini", "finit"],
+        answer: 0,
+      },
+      {
+        q: "___ vous allez à la fête ce soir ?",
+        choices: ["Est-ce que", "Qu'est-ce que", "Ce que"],
+        answer: 0,
+      },
+    ],
+  },
+  {
+    id: "a2-pronoms-complements",
+    title: "Les pronoms compléments (le, la, les, lui, leur)",
+    emoji: "🔤",
+    theory: [
+      {
+        title: "Les pronoms COD : le, la, l', les",
+        body: "Ils remplacent un objet direct (une chose ou une personne que l'on voit). « Tu vois Marie ? — Je la vois. », « J'aime le chocolat. — Je l'aime. »",
+      },
+      {
+        title: "Les pronoms COI : lui, leur",
+        body: "Ils remplacent « à + personne ». « Tu parles à Paul ? — Je lui parle. », « Donnez les clés aux voisins ? — Je leur donne. » (lui = 1 personne, leur = plusieurs)",
+      },
+      {
+        title: "La place du pronom",
+        body: "Le pronom se place AVANT le verbe : « Je la vois », « Nous les écoutons », « Tu lui téléphones ».",
+      },
+    ],
+    vocab: [
+      { fr: "je le vois", def: "je vois cette chose/personne (COD masculin)" },
+      { fr: "je la vois", def: "je vois cette personne ou chose (COD féminin)" },
+      { fr: "je lui parle", def: "je parle à cette personne (COI singulier)" },
+      { fr: "je leur parle", def: "je parle à ces personnes (COI pluriel)" },
+      { fr: "un complément d'objet direct (COD)", def: "ce qui répond à « qui ? quoi ? » après le verbe" },
+      { fr: "l'élision", def: "« le » et « la » deviennent « l' » devant une voyelle" },
+    ],
+    quiz: [
+      {
+        q: "Tu vois Marie ? — Oui, je ___ vois.",
+        choices: ["la", "lui", "le"],
+        answer: 0,
+      },
+      {
+        q: "Tu parles à Paul ? — Oui, je ___ parle.",
+        choices: ["lui", "le", "leur"],
+        answer: 0,
+      },
+      {
+        q: "Tu donnes les clés aux voisins ? — Je ___ donne les clés.",
+        choices: ["leur", "les", "lui"],
+        answer: 0,
+      },
+      {
+        q: "Les pronoms compléments se placent :",
+        choices: ["avant le verbe", "après le verbe", "à la fin de la phrase"],
+        answer: 0,
+      },
+      {
+        q: "J'aime le chocolat. — J'___ aime.",
+        choices: ["le", "la", "lui"],
+        answer: 0,
+      },
+      {
+        q: "Tu téléphones à Marie ? — Je ___ téléphone.",
+        choices: ["lui", "la", "leur"],
+        answer: 0,
+      },
+      {
+        q: "Vous regardez les enfants ? — Nous ___ regardons.",
+        choices: ["les", "leur", "y"],
+        answer: 0,
+      },
+      {
+        q: "Dans « je lui parle », « lui » remplace :",
+        choices: ["« à » + une personne", "une chose directe", "un lieu"],
+        answer: 0,
+      },
+    ],
+  },
+  {
+    id: "a2-ville-sorties",
+    title: "La ville et les sorties",
+    emoji: "🎫",
+    theory: [
+      {
+        title: "Proposer une sortie",
+        list: [
+          "Ça te dit d'aller au cinéma ?",
+          "On va à la piscine samedi ?",
+          "Tu veux venir au concert avec moi ?",
+          "Je t'invite au restaurant.",
+        ],
+      },
+      {
+        title: "Accepter ou refuser",
+        list: [
+          "Avec plaisir ! / Volontiers !",
+          "Bonne idée !",
+          "Désolé(e), je ne peux pas. Je suis occupé(e).",
+        ],
+      },
+      {
+        title: "Vocabulaire de la ville",
+        list: [
+          "le cinéma, le théâtre, la piscine, le concert, l'exposition, le match",
+          "un billet, une place, la file d'attente, la caisse",
+        ],
+      },
+    ],
+    vocab: [
+      { fr: "la piscine", def: "l'endroit où l'on nage" },
+      { fr: "le théâtre", def: "l'endroit où l'on regarde une pièce jouée" },
+      { fr: "le concert", def: "de la musique en direct" },
+      { fr: "une exposition", def: "des œuvres montrées dans un musée" },
+      { fr: "sortir", def: "quitter son domicile pour une activité" },
+      { fr: "inviter", def: "demander à quelqu'un de venir" },
+      { fr: "un billet", def: "le ticket pour entrer (cinéma, train…)" },
+      { fr: "la file d'attente", def: "la rangée de personnes qui attendent" },
+    ],
+    quiz: [
+      {
+        q: "Pour proposer une sortie, on dit :",
+        choices: ["Ça te dit d'aller au cinéma ?", "Tu vas bien ?", "Je m'appelle Paul."],
+        answer: 0,
+      },
+      {
+        q: "On regarde un film :",
+        choices: ["au cinéma", "à la piscine", "au stade"],
+        answer: 0,
+      },
+      {
+        q: "On nage :",
+        choices: ["à la piscine", "au théâtre", "au musée"],
+        answer: 0,
+      },
+      {
+        q: "« Inviter » quelqu'un, c'est :",
+        choices: ["demander à quelqu'un de venir", "partir loin", "payer pour quelqu'un"],
+        answer: 0,
+      },
+      {
+        q: "L'opposé de « rester chez soi », c'est :",
+        choices: ["sortir", "dormir", "regarder"],
+        answer: 0,
+      },
+      {
+        q: "Un billet sert pour :",
+        choices: ["le cinéma ou le train", "la nourriture", "meubler une maison"],
+        answer: 0,
+      },
+      {
+        q: "Un concert, c'est :",
+        choices: ["de la musique en direct", "un film", "un livre"],
+        answer: 0,
+      },
+      {
+        q: "Pour accepter une invitation, on dit :",
+        choices: ["Avec plaisir !", "Jamais !", "Pas question !"],
+        answer: 0,
+      },
+    ],
+  },
+];
+
+const B1_LESSONS = [
+  {
+    id: "b1-imparfait",
+    title: "L'imparfait",
+    emoji: "🕰️",
+    theory: [
+      {
+        title: "Comment le former ?",
+        body: "On prend la forme « nous » au présent, on enlève « -ons » et on ajoute : -ais, -ais, -ait, -ions, -iez, -aient. « Nous parlons » → je parlais, tu parlais, il parlait, nous parlions, vous parliez, ils parlaient.",
+      },
+      {
+        title: "Les irréguliers importants",
+        list: [
+          "être → j'étais, tu étais, il était, nous étions, vous étiez, ils étaient",
+          "avoir → j'avais, elle avait, elles avaient",
+          "aller → j'allais, nous allions",
+          "faire → je faisais, nous faisions",
+        ],
+      },
+      {
+        title: "Quand l'utiliser ?",
+        list: [
+          "Une habitude dans le passé : « Quand j'étais petit, je jouais au parc tous les jours. »",
+          "Une description : « Il pleuvait, la maison était calme. »",
+        ],
+      },
+      {
+        title: "Imparfait ou passé composé ?",
+        body: "L'imparfait = le décor et les habitudes (« il pleuvait », « je jouais »). Le passé composé = l'action précise terminée (« hier, j'ai vu un film »). Les deux se combinent : « Je lisais quand tu as téléphoné. »",
+      },
+    ],
+    vocab: [
+      { fr: "je jouais", def: "imparfait de « jouer » (1ère personne)" },
+      { fr: "j'étais", def: "imparfait de « être » (1ère personne)" },
+      { fr: "il faisait", def: "imparfait de « faire » (3ème personne)" },
+      { fr: "une habitude", def: "ce qu'on faisait régulièrement" },
+      { fr: "tous les jours", def: "chaque jour" },
+      { fr: "il y avait", def: "imparfait de « il y a » (existence)" },
+    ],
+    quiz: [
+      {
+        q: "Quand j'étais petit, je ___ au parc. (jouer)",
+        choices: ["jouais", "joué", "joue"],
+        answer: 0,
+      },
+      {
+        q: "Tu ___ souvent fatigué. (être)",
+        choices: ["étais", "es", "seras"],
+        answer: 0,
+      },
+      {
+        q: "Nous ___ au foot chaque week-end. (jouer)",
+        choices: ["jouions", "joué", "jouons"],
+        answer: 0,
+      },
+      {
+        q: "Le temps ___ beau. (être, imparfait)",
+        choices: ["était", "a été", "sera"],
+        answer: 0,
+      },
+      {
+        q: "L'imparfait exprime :",
+        choices: ["une habitude ou une description", "une action terminée et précise", "un futur proche"],
+        answer: 0,
+      },
+      {
+        q: "Vous ___ de Rome. (venir, imparfait)",
+        choices: ["veniez", "venu", "venons"],
+        answer: 0,
+      },
+      {
+        q: "Elles ___ contentes. (être, imparfait)",
+        choices: ["étaient", "ont été", "seront"],
+        answer: 0,
+      },
+      {
+        q: "La terminaison de « je » à l'imparfait est :",
+        choices: ["-ais", "-ai", "-é"],
+        answer: 0,
+      },
+    ],
+  },
+  {
+    id: "b1-futur-simple",
+    title: "Le futur simple",
+    emoji: "➡️",
+    theory: [
+      {
+        title: "Comment le former ?",
+        body: "Infinitif + -ai, -as, -a, -ons, -ez, -ont. « Je parlerai, tu finiras, il vendra, nous partirons, vous prendrez, ils feront. »",
+      },
+      {
+        title: "Les irréguliers importants",
+        list: [
+          "aller → j'irai, tu iras, nous irons",
+          "faire → je ferai, tu feras",
+          "être → je serai, vous serez",
+          "avoir → j'aurai, ils auront",
+          "venir → je viendrai, nous viendrons",
+          "pouvoir → je pourrai",
+        ],
+      },
+      {
+        title: "Quand l'utiliser ?",
+        body: "Pour un projet, une promesse ou une prédiction : « L'année prochaine, je déménagerai à Lyon », « Tu verras, ce sera génial ! »",
+      },
+      {
+        title: "Futur proche ou futur simple ?",
+        body: "Le futur proche est plus concret et immédiat (« ce soir, je vais sortir »). Le futur simple est plus distant ou imaginaire (« un jour, je vivrai en Espagne »).",
+      },
+    ],
+    vocab: [
+      { fr: "je parlerai", def: "futur simple de « parler » (1ère personne)" },
+      { fr: "tu finiras", def: "futur simple de « finir » (2ème personne)" },
+      { fr: "il sera", def: "futur simple de « être » (3ème personne)" },
+      { fr: "nous irons", def: "futur simple de « aller » (1ère personne du pluriel)" },
+      { fr: "l'année prochaine", def: "l'année suivant celle où l'on parle" },
+      { fr: "une prédiction", def: "ce que l'on annonce pour l'avenir" },
+    ],
+    quiz: [
+      {
+        q: "Demain, je ___ au cinéma. (aller, futur)",
+        choices: ["irai", "vais", "irai être"],
+        answer: 0,
+      },
+      {
+        q: "Tu ___ mes devoirs avec moi ? (faire, futur)",
+        choices: ["feras", "fais", "ferais"],
+        answer: 0,
+      },
+      {
+        q: "Nous ___ là ! (être, futur)",
+        choices: ["serons", "sommes", "serions"],
+        answer: 0,
+      },
+      {
+        q: "Elle ___ bientôt. (arriver, futur)",
+        choices: ["arrivera", "arrivra", "arrive"],
+        answer: 0,
+      },
+      {
+        q: "Le futur de « avoir » est :",
+        choices: ["j'aurai", "j'ai eu", "j'avais"],
+        answer: 0,
+      },
+      {
+        q: "Demain, il ___ 20 ans. (avoir)",
+        choices: ["aura", "a", "avait"],
+        answer: 0,
+      },
+      {
+        q: "La terminaison de « ils » au futur est :",
+        choices: ["-ont", "-ent", "-ant"],
+        answer: 0,
+      },
+      {
+        q: "« L'année prochaine, vous ___ 18 ans. » (avoir)",
+        choices: ["aurez", "avez", "aviez"],
+        answer: 0,
+      },
+    ],
+  },
+  {
+    id: "b1-pronoms-relatifs",
+    title: "Les pronoms relatifs (qui, que, dont, où)",
+    emoji: "🔗",
+    theory: [
+      {
+        title: "Les quatre pronoms relatifs",
+        list: [
+          "qui = sujet : « L'homme qui parle est mon professeur. »",
+          "que = objet direct : « Le livre que je lis est passionnant. »",
+          "où = lieu ou moment : « La ville où je vis est Lyon. », « Le jour où tu es arrivé. »",
+          "dont = remplace « de + quelque chose » : « Le film dont je me souviens. »",
+        ],
+      },
+      {
+        title: "Comment choisir ?",
+        body: "Demande-toi quelle est la fonction du pronom dans la phrase relative : sujet → qui, objet → que, complément de lieu/temps → où, complément avec « de » → dont.",
+      },
+    ],
+    vocab: [
+      { fr: "qui", def: "pronom relatif sujet (personne ou chose)" },
+      { fr: "que", def: "pronom relatif objet direct" },
+      { fr: "dont", def: "pronom relatif remplaçant « de + complément »" },
+      { fr: "où", def: "pronom relatif de lieu ou de temps" },
+      { fr: "l'homme qui parle", def: "exemple : c'est lui qui parle" },
+      { fr: "le livre que je lis", def: "exemple : je lis ce livre" },
+    ],
+    quiz: [
+      {
+        q: "« L'homme ___ parle est mon professeur. »",
+        choices: ["qui", "que", "dont"],
+        answer: 0,
+      },
+      {
+        q: "« Le livre ___ je lis est passionnant. »",
+        choices: ["que", "qui", "où"],
+        answer: 0,
+      },
+      {
+        q: "« La ville ___ je vis est Lyon. »",
+        choices: ["où", "que", "qui"],
+        answer: 0,
+      },
+      {
+        q: "« Le film ___ je me souviens date des années 90. »",
+        choices: ["dont", "que", "où"],
+        answer: 0,
+      },
+      {
+        q: "Quel pronom remplace un objet direct ?",
+        choices: ["que", "qui", "où"],
+        answer: 0,
+      },
+      {
+        q: "« Le copain avec ___ je sors s'appelle Hugo. »",
+        choices: ["qui", "dont", "que"],
+        answer: 0,
+      },
+      {
+        q: "« C'est le gâteau ___ j'ai préparé hier. »",
+        choices: ["que", "qui", "dont"],
+        answer: 0,
+      },
+      {
+        q: "« L'année ___ j'ai commencé le français » :",
+        choices: ["où", "que", "dont"],
+        answer: 0,
+      },
+    ],
+  },
+  {
+    id: "b1-opinions-connecteurs",
+    title: "Donner son avis et enchaîner ses idées",
+    emoji: "💬",
+    theory: [
+      {
+        title: "Donner son opinion",
+        list: [
+          "À mon avis, … / Selon moi, …",
+          "Je pense que… / Je crois que…",
+          "Je suis d'accord / pas d'accord.",
+        ],
+      },
+      {
+        title: "Les connecteurs logiques",
+        list: [
+          "d'abord (première idée), ensuite (après), enfin (pour finir)",
+          "mais, cependant (opposition)",
+          "parce que (cause), donc (conséquence)",
+        ],
+      },
+      {
+        title: "Exemple d'argumentation",
+        body: "« À mon avis, la ville est trop bruyante. D'abord, il y a beaucoup de circulation. Ensuite, les cafés sont ouverts tard. Donc, je préfère habiter à la campagne, cependant le travail m'oblige à rester ici. »",
+      },
+    ],
+    vocab: [
+      { fr: "à mon avis", def: "formule pour donner son opinion" },
+      { fr: "je pense que", def: "formule pour exprimer une idée personnelle" },
+      { fr: "parce que", def: "pour donner la cause" },
+      { fr: "donc", def: "pour donner la conséquence" },
+      { fr: "d'abord / ensuite / enfin", def: "pour organiser les étapes de son discours" },
+      { fr: "cependant", def: "pour exprimer une opposition" },
+    ],
+    quiz: [
+      {
+        q: "Pour donner ton opinion, tu dis :",
+        choices: ["À mon avis…", "Et toi ?", "Bien sûr !"],
+        answer: 0,
+      },
+      {
+        q: "« Je reste chez moi parce que je suis malade. » « Parce que » exprime :",
+        choices: ["la cause", "la conséquence", "l'opposition"],
+        answer: 0,
+      },
+      {
+        q: "« Il pleut, ___ je prends un parapluie. »",
+        choices: ["donc", "parce que", "d'abord"],
+        answer: 0,
+      },
+      {
+        q: "Les étapes : d'abord, ensuite…",
+        choices: ["enfin", "cependant", "parce que"],
+        answer: 0,
+      },
+      {
+        q: "« Cependant » introduit :",
+        choices: ["une opposition", "une cause", "une suite"],
+        answer: 0,
+      },
+      {
+        q: "Être d'accord, c'est :",
+        choices: ["avoir la même opinion", "être en retard", "se mettre à table"],
+        answer: 0,
+      },
+      {
+        q: "« Il a réussi, ___ il a beaucoup travaillé. »",
+        choices: ["parce qu'il", "parce il", "parce que il"],
+        answer: 0,
+      },
+      {
+        q: "« ___ que tu as raison. »",
+        choices: ["Je crois", "Je crois-tu", "Crois-je"],
+        answer: 0,
+      },
+    ],
+  },
+];
+
+const LEVELS = {
+  A1: { label: "A1 · Débutant", lessons: LESSONS },
+  A2: { label: "A2 · Élémentaire", lessons: A2_LESSONS },
+  B1: { label: "B1 · Intermédiaire", lessons: B1_LESSONS },
+};
+
+const ALL_LESSONS = [...LESSONS, ...A2_LESSONS, ...B1_LESSONS];

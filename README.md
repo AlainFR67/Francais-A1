@@ -1,6 +1,6 @@
-# Révision Français A1
+# Révision Français A1 · A2 · B1
 
-Application web simple (HTML/CSS/JavaScript, sans dépendance) pour réviser les bases du français de niveau A1 (CECRL).
+Application web simple (HTML/CSS/JavaScript, sans dépendance) pour réviser le français aux niveaux A1, A2 et B1 (CECRL). Un menu déroulant en haut de page permet de changer de niveau ; cours, quiz, examen et progression sont indépendants pour chaque niveau.
 
 ## Lancer l'application
 
@@ -9,14 +9,13 @@ Aucune installation nécessaire : ouvre simplement `index.html` dans un navigate
 Ou avec un petit serveur local :
 
 ```bash
-cd francais-a1
 python3 -m http.server 8080
 # puis ouvrir http://localhost:8080
 ```
 
 ## Contenu
 
-10 leçons de niveau A1 :
+### Niveau A1 (10 leçons)
 
 1. Se présenter (salutations, questions de base)
 2. Les articles (le/la/les, un/une/des, possessifs, démonstratifs)
@@ -29,17 +28,34 @@ python3 -m http.server 8080
 9. La vie quotidienne (jours, mois, lieux)
 10. La France : culture et citoyenneté (devise, symboles, dates et personnes célèbres — questions type test de nationalité)
 
+### Niveau A2 (5 leçons)
+
+1. Le passé composé avec avoir (participes passés, négation)
+2. Le passé composé avec être (verbes de mouvement, accord du participe)
+3. Le futur proche (aller + infinitif)
+4. Les pronoms compléments (COD : le/la/l'/les, COI : lui/leur)
+5. La ville et les sorties (proposer, accepter, refuser, vocabulaire)
+
+### Niveau B1 (4 leçons)
+
+1. L'imparfait (formation, irréguliers, opposé au passé composé)
+2. Le futur simple (formation, irréguliers, futur proche ou futur simple ?)
+3. Les pronoms relatifs (qui, que, dont, où)
+4. Donner son avis et enchaîner ses idées (connecteurs logiques)
+
 ## Fonctionnalités
 
+- **Niveaux (A1 / A2 / B1)** : menu déroulant en haut de page ; le niveau est mémorisé et s'applique aux cours, cartes, quiz, examen et progression
 - **Cours** : règle claire + exemples pour chaque leçon
 - **Cartes mémoire** : mot → définition, à retourner, avec progression
-- **Quiz** : choix multiples, questions et réponses mélangées, résultat détaillé
-- **Examen final** : 20 questions tirées au sort dans les 10 leçons, thème indiqué à chaque question, meilleur score et nombre de tentatives enregistrés
+- **Quiz** : choix multiples, questions et réponses mélangées, questions générées à partir des tableaux de conjugaison et du vocabulaire, résultat détaillé
+- **Examen final** : 20 questions tirées au sort dans les leçons du niveau courant, thème indiqué à chaque question, meilleur score et nombre de tentatives enregistrés par niveau
 - **Progression** : meilleur score par leçon et cartes consultées, sauvegardés dans le navigateur (localStorage), sans compte ni serveur
 - **Numéro de version** affiché en bas de page pour vérifier que tu utilises la dernière version
 
 ## Versions
 
+- **2.0.0** (build du 2026-11-20 à 11:15 UTC) : sélecteur de niveau A1/A2/B1 avec 9 nouvelles leçons (5 A2 : passé composé avec avoir/être, futur proche, pronoms compléments, ville et sorties ; 4 B1 : imparfait, futur simple, pronoms relatifs, opinions et connecteurs), examens et progression par niveau
 - **1.6.0** (build du 2026-11-20 à 10:39 UTC) : leçon « La France : culture et citoyenneté » (devise, symboles, grandes dates, personnes célèbres)
 - **1.5.0** (build du 2026-11-20 à 10:30 UTC) : leçon « Les verbes du 3ème groupe (tous les autres) au présent » et titres des leçons de conjugaison renommés par groupe
 - **1.4.1** (build du 2026-11-20 à 10:19 UTC) : correction d'une question impossible du quiz « Articles » (possessif + complément « de Marie » ne peuvent pas se cumuler en français)
