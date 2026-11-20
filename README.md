@@ -16,14 +16,16 @@ python3 -m http.server 8080
 
 ## Contenu
 
-6 leçons de niveau A1 :
+8 leçons de niveau A1 :
 
 1. Se présenter (salutations, questions de base)
 2. Les articles (le/la/les, un/une/des, possessifs, démonstratifs)
 3. Être et avoir (conjugaison au présent)
 4. Les verbes en -er au présent
-5. Les nombres et l'heure
-6. La vie quotidienne (jours, mois, lieux)
+5. Les verbes en -ir au présent (2ᵉ groupe)
+6. Les 3 groupes de verbes (dont aller, faire et les verbes irréguliers du 3ᵉ groupe)
+7. Les nombres et l'heure
+8. La vie quotidienne (jours, mois, lieux)
 
 ## Fonctionnalités
 
