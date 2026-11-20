@@ -1,7 +1,8 @@
 "use strict";
 
-const APP_VERSION = "1.2.0";
+const APP_VERSION = "1.2.1";
 const APP_BUILD_DATE = "2025-11-20";
+const APP_BUILD_TIME = "09:48";
 
 const app = document.getElementById("app");
 const tabs = document.querySelectorAll(".tab");
@@ -50,7 +51,7 @@ tabs.forEach((t) =>
 
 function initVersion() {
   const elv = document.getElementById("app-version");
-  if (elv) elv.textContent = `Version ${APP_VERSION} · build du ${APP_BUILD_DATE}`;
+  if (elv) elv.textContent = `Version ${APP_VERSION} · build du ${APP_BUILD_DATE} à ${APP_BUILD_TIME} (UTC)`;
 }
 
 function esc(str) {
