@@ -1,10 +1,11 @@
 "use strict";
 
-const APP_VERSION = "1.3.0";
+const APP_VERSION = "1.4.0";
 const APP_BUILD_DATE = "2026-11-20";
-const APP_BUILD_TIME = "09:58";
+const APP_BUILD_TIME = "10:12";
 const EXAM_QUESTION_COUNT = 20;
 const EXAM_ID = "examen-final";
+const QUIZ_LENGTH = 10;
 
 const app = document.getElementById("app");
 const tabs = document.querySelectorAll(".tab");
@@ -63,6 +64,113 @@ function esc(str) {
   return div.innerHTML;
 }
 
+function pickRandom(arr, count) {
+  return shuffle(arr).slice(0, count);
+}
+
+function makeChoices(correct, distractorPool) {
+  const wrongs = [...new Set(distractorPool.filter((d) => d !== correct))];
+  if (wrongs.length < 2) return null;
+  const choices = shuffle([correct, ...pickRandom(wrongs, 2)]);
+  return { choices, answer: choices.indexOf(correct) };
+}
+
+function genVerbQuestions(lesson, verbs) {
+  const out = [];
+  verbs.forEach((verb) => {
+    const table = VERB_TABLES[verb];
+    if (!table) return;
+    pickRandom(PRONOUNS, 3).forEach(({ pronoun, key }) => {
+      const built = makeChoices(table[key], Object.values(table));
+      if (built) {
+        out.push({
+          q: `${pronoun} ___ (${verb})`,
+          choices: built.choices,
+          answer: built.answer,
+        });
+      }
+    });
+  });
+  return out;
+}
+
+function genGroupQuestions(lesson, verbs) {
+  const out = [];
+  const known = shuffle(Object.keys(VERB_GROUPS));
+  verbs.forEach((verb) => {
+    const built = makeChoices(GROUP_LABELS[VERB_GROUPS[verb]], GROUP_LABELS);
+    if (built) {
+      out.push({
+        q: `À quel groupe appartient le verbe « ${verb} » ?`,
+        choices: built.choices,
+        answer: built.answer,
+      });
+    }
+  });
+  pickRandom(known, 3).forEach((verb) => {
+    const built = makeChoices(GROUP_LABELS[VERB_GROUPS[verb]], GROUP_LABELS);
+    if (built) {
+      out.push({
+        q: `À quel groupe appartient le verbe « ${verb} » ?`,
+        choices: built.choices,
+        answer: built.answer,
+      });
+    }
+  });
+  return out;
+}
+
+function genVocabQuestions(lesson) {
+  const out = [];
+  const words = lesson.vocab;
+  words.forEach((entry, idx) => {
+    const others = words.filter((_, i) => i !== idx);
+    const toDef = makeChoices(entry.def, others.map((o) => o.def));
+    if (toDef) {
+      out.push({
+        q: `Que signifie « ${entry.fr} » ?`,
+        choices: toDef.choices,
+        answer: toDef.answer,
+      });
+    }
+    const toWord = makeChoices(entry.fr, others.map((o) => o.fr));
+    if (toWord) {
+      out.push({
+        q: `Quel mot correspond à cette définition : « ${entry.def} » ?`,
+        choices: toWord.choices,
+        answer: toWord.answer,
+      });
+    }
+  });
+  return out;
+}
+
+function buildQuizPool(lesson) {
+  const pool = [...lesson.quiz];
+  if (lesson.genVerbs) pool.push(...genVerbQuestions(lesson, lesson.genVerbs));
+  if (lesson.genGroups) pool.push(...genGroupQuestions(lesson, lesson.genVerbs || []));
+  pool.push(...genVocabQuestions(lesson));
+  const seen = new Set();
+  return pool.filter((q) => {
+    const key = q.q + "|" + q.choices[q.answer];
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function startQuizFromPool(lessonId, pool) {
+  state.mode = lessonId === EXAM_ID ? "exam" : "lesson";
+  state.quizLessonId = lessonId;
+  state.quizIndex = 0;
+  state.quizScore = 0;
+  state.quizAnswers = shuffle(pool).slice(0, QUIZ_LENGTH).map((q) => ({
+    q,
+    order: shuffle(q.choices.map((_, i) => i)),
+  }));
+  setView("quiz");
+}
+
 function shuffle(arr) {
   const copy = [...arr];
   for (let i = copy.length - 1; i > 0; i--) {
@@ -92,7 +200,7 @@ function renderHome() {
     return `
       <article class="card">
         <h3>${lesson.emoji} ${esc(lesson.title)}</h3>
-        <p>${lesson.quiz.length} questions de quiz · ${lesson.vocab.length} cartes mémoire</p>
+        <p>${lesson.quiz.length} questions fixes + questions générées · ${lesson.vocab.length} cartes mémoire</p>
         <div class="progressbar"><div style="width:${pct}%"></div></div>
         <div class="detail" style="color:var(--muted);font-size:.85rem;">
           ${best === null ? "Pas encore de quiz" : `Meilleur score : ${best}%`}
@@ -278,18 +386,22 @@ function renderExam() {
 }
 
 function startExam() {
-  const pool = [];
+  let pool = [];
   LESSONS.forEach((lesson) => {
-    lesson.quiz.forEach((q) => {
-      pool.push({ q, lessonTitle: lesson.title, lessonEmoji: lesson.emoji });
+    buildQuizPool(lesson).forEach((q) => {
+      pool.push({
+        q,
+        lessonTitle: lesson.title,
+        lessonEmoji: lesson.emoji,
+      });
     });
   });
-  const picked = shuffle(pool).slice(0, Math.min(EXAM_QUESTION_COUNT, pool.length));
+  pool = shuffle(pool).slice(0, Math.min(EXAM_QUESTION_COUNT, pool.length));
   state.mode = "exam";
   state.quizLessonId = EXAM_ID;
   state.quizIndex = 0;
   state.quizScore = 0;
-  state.quizAnswers = picked.map((item, idx) => ({
+  state.quizAnswers = pool.map((item, idx) => ({
     q: item.q,
     lessonTitle: item.lessonTitle,
     lessonEmoji: item.lessonEmoji,
@@ -340,16 +452,8 @@ function renderExamResult() {
 /* ---------- Quiz ---------- */
 
 function startQuiz(lessonId) {
-  state.mode = "lesson";
   const lesson = getLesson(lessonId);
-  state.quizLessonId = lessonId;
-  state.quizIndex = 0;
-  state.quizScore = 0;
-  state.quizAnswers = shuffle(lesson.quiz).map((q) => {
-    const order = shuffle(q.choices.map((_, i) => i));
-    return { q, order };
-  });
-  setView("quiz");
+  startQuizFromPool(lessonId, buildQuizPool(lesson));
 }
 
 function renderQuiz() {

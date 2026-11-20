@@ -38,6 +38,7 @@ python3 -m http.server 8080
 
 ## Versions
 
+- **1.4.0** (build du 2026-11-20 à 10:12 UTC) : générateur de questions — de nouvelles questions à chaque quiz et examen (253 questions disponibles)
 - **1.3.0** (build du 2026-11-20 à 09:58 UTC) : mode « Examen final » (20 questions mélangées des 8 leçons, thème par question, tentatives comptées)
 - **1.2.4** (build du 2026-11-20 à 09:56 UTC) : signature « … créée par son ami **Vibe Code** » en pied de page
 - **1.2.3** (build du 2026-11-20 à 09:54 UTC) : correctif anti-cache — les fichiers portent maintenant la version dans leur URL (?v=1.2.3)

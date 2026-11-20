@@ -162,6 +162,7 @@ const LESSONS = [
   },
   {
     id: "etre-avoir",
+    genVerbs: ["être", "avoir"],
     title: "Être et avoir",
     emoji: "✅",
     theory: [
@@ -231,6 +232,7 @@ const LESSONS = [
   },
   {
     id: "verbes-er",
+    genVerbs: ["parler", "habiter", "aimer", "jouer", "écouter", "étudier", "travailler", "manger"],
     title: "Les verbes en -er au présent",
     emoji: "✏️",
     theory: [
@@ -308,6 +310,7 @@ const LESSONS = [
   },
   {
     id: "verbes-ir",
+    genVerbs: ["finir", "choisir", "grandir", "réfléchir", "réussir", "obéir"],
     title: "Les verbes en -ir au présent",
     emoji: "🚀",
     theory: [
@@ -389,6 +392,8 @@ const LESSONS = [
   },
   {
     id: "trois-groupes",
+    genVerbs: ["aller", "faire", "venir"],
+    genGroups: true,
     title: "Les 3 groupes de verbes",
     emoji: "🎯",
     theory: [
@@ -619,3 +624,46 @@ const LESSONS = [
     ],
   },
 ];
+
+const PRONOUNS = [
+  { pronoun: "je", key: "je" },
+  { pronoun: "tu", key: "tu" },
+  { pronoun: "il / elle", key: "il" },
+  { pronoun: "nous", key: "nous" },
+  { pronoun: "vous", key: "vous" },
+  { pronoun: "ils / elles", key: "ils" },
+];
+
+const GROUP_LABELS = [
+  "1er groupe (-er)",
+  "2e groupe (finir)",
+  "3e groupe (irrégulier)",
+];
+
+const VERB_TABLES = {
+  "être": { je: "suis", tu: "es", il: "est", nous: "sommes", vous: "êtes", ils: "sont" },
+  "avoir": { je: "ai", tu: "as", il: "a", nous: "avons", vous: "avez", ils: "ont" },
+  "parler": { je: "parle", tu: "parles", il: "parle", nous: "parlons", vous: "parlez", ils: "parlent" },
+  "habiter": { je: "habite", tu: "habites", il: "habite", nous: "habitons", vous: "habitez", ils: "habitent" },
+  "aimer": { je: "aime", tu: "aimes", il: "aime", nous: "aimons", vous: "aimez", ils: "aiment" },
+  "jouer": { je: "joue", tu: "joues", il: "joue", nous: "jouons", vous: "jouez", ils: "jouent" },
+  "écouter": { je: "écoute", tu: "écoutes", il: "écoute", nous: "écoutons", vous: "écoutez", ils: "écoutent" },
+  "étudier": { je: "étudie", tu: "étudies", il: "étudie", nous: "étudions", vous: "étudiez", ils: "étudient" },
+  "travailler": { je: "travaille", tu: "travailles", il: "travaille", nous: "travaillons", vous: "travaillez", ils: "travaillent" },
+  "manger": { je: "mange", tu: "manges", il: "mange", nous: "mangeons", vous: "mangez", ils: "mangent" },
+  "finir": { je: "finis", tu: "finis", il: "finit", nous: "finissons", vous: "finissez", ils: "finissent" },
+  "choisir": { je: "choisis", tu: "choisis", il: "choisit", nous: "choisissons", vous: "choisissez", ils: "choisissent" },
+  "grandir": { je: "grandis", tu: "grandis", il: "grandit", nous: "grandissons", vous: "grandissez", ils: "grandissent" },
+  "réfléchir": { je: "réfléchis", tu: "réfléchis", il: "réfléchit", nous: "réfléchissons", vous: "réfléchissez", ils: "réfléchissent" },
+  "réussir": { je: "réussis", tu: "réussis", il: "réussit", nous: "réussissons", vous: "réussissez", ils: "réussissent" },
+  "aller": { je: "vais", tu: "vas", il: "va", nous: "allons", vous: "allez", ils: "vont" },
+  "faire": { je: "fais", tu: "fais", il: "fait", nous: "faisons", vous: "faites", ils: "font" },
+  "venir": { je: "viens", tu: "viens", il: "vient", nous: "venons", vous: "venez", ils: "viennent" },
+};
+
+const VERB_GROUPS = {
+  "parler": 0, "habiter": 0, "aimer": 0, "jouer": 0, "écouter": 0,
+  "étudier": 0, "travailler": 0, "manger": 0,
+  "finir": 1, "choisir": 1, "grandir": 1, "réfléchir": 1, "réussir": 1, "obéir": 1,
+  "aller": 2, "faire": 2, "venir": 2, "partir": 2, "sortir": 2, "dormir": 2,
+};
