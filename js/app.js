@@ -1,8 +1,10 @@
 "use strict";
 
-const APP_VERSION = "1.2.4";
+const APP_VERSION = "1.3.0";
 const APP_BUILD_DATE = "2026-11-20";
-const APP_BUILD_TIME = "09:56";
+const APP_BUILD_TIME = "09:58";
+const EXAM_QUESTION_COUNT = 20;
+const EXAM_ID = "examen-final";
 
 const app = document.getElementById("app");
 const tabs = document.querySelectorAll(".tab");
@@ -18,6 +20,7 @@ let state = {
   quizIndex: 0,
   quizScore: 0,
   quizAnswers: [],
+  mode: "lesson",
 };
 
 function loadProgress() {
@@ -74,6 +77,7 @@ function render() {
   else if (state.view === "lesson") renderLesson(state.lessonId);
   else if (state.view === "cards") renderCards();
   else if (state.view === "quiz") renderQuiz();
+  else if (state.view === "exam") renderExam();
   else if (state.view === "progress") renderProgress();
 }
 
@@ -102,13 +106,20 @@ function renderHome() {
     `;
   }).join("");
 
+  const exam = progress.quizzes[EXAM_ID];
+
   app.innerHTML = `
     <section class="hero">
       <h2>Bienvenue ! 👋</h2>
       <p>Révise les bases du français niveau A1 : dates, prononciation, vocabulaire et grammaire. Choisis une leçon, révise avec les cartes mémoire puis teste-toi avec le quiz.</p>
+      <div class="flash-controls" style="justify-content:flex-start;margin-top:12px;">
+        <button class="btn" id="hero-exam">🎓 Examen final${exam ? ` — meilleur score : ${exam.bestPercent}%` : ""}</button>
+      </div>
     </section>
     <div class="grid">${cards}</div>
   `;
+
+  document.getElementById("hero-exam").addEventListener("click", () => setView("exam"));
 
   app.querySelectorAll("[data-lesson]").forEach((b) =>
     b.addEventListener("click", () => {
@@ -232,9 +243,104 @@ function renderCards() {
   });
 }
 
+/* ---------- Examen final ---------- */
+
+function getExamProgress() {
+  return loadProgress().quizzes[EXAM_ID] || null;
+}
+
+function renderExam() {
+  const exam = getExamProgress();
+  const totalQuestions = LESSONS.reduce((n, l) => n + l.quiz.length, 0);
+
+  app.innerHTML = `
+    <section class="panel" style="text-align:center;">
+      <h2>🎓 Examen final</h2>
+      <p class="exam-badge">🏅</p>
+      <p style="line-height:1.6;">
+        ${EXAM_QUESTION_COUNT} questions tirées au sort dans les ${LESSONS.length} leçons
+        (${totalQuestions} questions au total).<br />
+        À chaque question, le thème est indiqué pour t'aider à te repérer.
+      </p>
+      ${exam ? `
+        <p class="result-status" style="color:var(--muted);margin-bottom:8px;">
+          Ton meilleur score : <strong>${exam.bestPercent}%</strong>
+          · ${exam.attempts} tentative${exam.attempts > 1 ? "s" : ""}
+        </p>` : `
+        <p style="color:var(--muted);margin-bottom:8px;">Tu n'as pas encore tenté l'examen. Bonne chance !</p>`}
+      <div class="flash-controls">
+        <button class="btn primary" id="start-exam">Commencer l'examen</button>
+      </div>
+    </section>
+  `;
+
+  document.getElementById("start-exam").addEventListener("click", startExam);
+}
+
+function startExam() {
+  const pool = [];
+  LESSONS.forEach((lesson) => {
+    lesson.quiz.forEach((q) => {
+      pool.push({ q, lessonTitle: lesson.title, lessonEmoji: lesson.emoji });
+    });
+  });
+  const picked = shuffle(pool).slice(0, Math.min(EXAM_QUESTION_COUNT, pool.length));
+  state.mode = "exam";
+  state.quizLessonId = EXAM_ID;
+  state.quizIndex = 0;
+  state.quizScore = 0;
+  state.quizAnswers = picked.map((item, idx) => ({
+    q: item.q,
+    lessonTitle: item.lessonTitle,
+    lessonEmoji: item.lessonEmoji,
+    examOrder: idx + 1,
+    order: shuffle(item.q.choices.map((_, i) => i)),
+  }));
+  setView("quiz");
+}
+
+function renderExamResult() {
+  const total = state.quizAnswers.length;
+  const pct = Math.round((state.quizScore / total) * 100);
+
+  const msg =
+    pct === 100 ? "Sans faute ! Tu es un(e) champion(ne) du français A1. 🏆"
+    : pct >= 80 ? "Excellent ! Niveau A1 solidement acquis. 🌟"
+    : pct >= 60 ? "C'est bien, encore quelques révisions et ce sera parfait. 💪"
+    : "Reprends les leçons qui posent problème, puis retente ta chance !";
+
+  const progress = loadProgress();
+  const prev = progress.quizzes[EXAM_ID];
+  progress.quizzes[EXAM_ID] = {
+    bestPercent: prev ? Math.max(prev.bestPercent, pct) : pct,
+    lastPercent: pct,
+    attempts: (prev && prev.attempts ? prev.attempts : 0) + 1,
+  };
+  saveProgress(progress);
+
+  app.innerHTML = `
+    <button class="backlink" id="back">← Retour à l'examen</button>
+    <section class="panel" style="text-align:center;">
+      <h2>🎓 Résultat de l'examen</h2>
+      <p class="exam-badge">${pct >= 80 ? "🏅" : pct >= 60 ? "👍" : "📚"}</p>
+      <p class="result-score">${state.quizScore} / ${total} (${pct}%)</p>
+      <p class="result-msg">${msg}</p>
+      <div class="flash-controls">
+        <button class="btn" id="retry">↻ Nouvel examen</button>
+        <button class="btn primary" id="home">Progression</button>
+      </div>
+    </section>
+  `;
+
+  document.getElementById("back").addEventListener("click", () => setView("exam"));
+  document.getElementById("retry").addEventListener("click", () => startExam());
+  document.getElementById("home").addEventListener("click", () => setView("progress"));
+}
+
 /* ---------- Quiz ---------- */
 
 function startQuiz(lessonId) {
+  state.mode = "lesson";
   const lesson = getLesson(lessonId);
   state.quizLessonId = lessonId;
   state.quizIndex = 0;
@@ -247,14 +353,19 @@ function startQuiz(lessonId) {
 }
 
 function renderQuiz() {
-  const lesson = getLesson(state.quizLessonId);
   const item = state.quizAnswers[state.quizIndex];
   if (!item) return renderQuizResult();
+  const isExam = state.mode === "exam";
+  const lesson = getLesson(state.quizLessonId);
+  const title = isExam
+    ? `🎓 Examen final — question ${item.examOrder} / ${state.quizAnswers.length}`
+    : `✅ Quiz — ${lesson.emoji} ${esc(lesson.title)}`;
 
   app.innerHTML = `
-    <button class="backlink" id="quit">← Quitter le quiz</button>
+    <button class="backlink" id="quit">← ${isExam ? "Abandonner l'examen" : "Quitter le quiz"}</button>
     <section class="panel">
-      <h2>✅ Quiz — ${lesson.emoji} ${esc(lesson.title)}</h2>
+      <h2>${title}</h2>
+      ${isExam ? `<span class="theme-tag">${item.lessonEmoji} ${esc(item.lessonTitle)}</span>` : ""}
       <div class="quiz-header">
         <span>Question ${state.quizIndex + 1} / ${state.quizAnswers.length}</span>
         <span>Score : ${state.quizScore}</span>
@@ -273,7 +384,7 @@ function renderQuiz() {
     </section>
   `;
 
-  document.getElementById("quit").addEventListener("click", () => setView("home"));
+  document.getElementById("quit").addEventListener("click", () => setView(isExam ? "exam" : "home"));
   app.querySelectorAll(".choice").forEach((btn) =>
     btn.addEventListener("click", () => answerQuiz(btn))
   );
@@ -306,6 +417,8 @@ function answerQuiz(btn) {
 }
 
 function renderQuizResult() {
+  if (state.mode === "exam") return renderExamResult();
+
   const lesson = getLesson(state.quizLessonId);
   const total = state.quizAnswers.length;
   const pct = Math.round((state.quizScore / total) * 100);
@@ -344,6 +457,21 @@ function renderQuizResult() {
 
 function renderProgress() {
   const progress = loadProgress();
+  const exam = progress.quizzes[EXAM_ID];
+
+  const examRow = `
+    <div class="stat">
+      <div class="name">🎓 Examen final</div>
+      <div class="progressbar"><div style="width:${exam ? exam.bestPercent : 0}%"></div></div>
+      <div class="detail">
+        ${exam
+          ? `Meilleur score : ${exam.bestPercent}%
+             · ${exam.attempts} tentative${exam.attempts > 1 ? "s" : ""}`
+          : "Pas encore tenté"}
+      </div>
+      <div class="actions"><button class="btn" id="progress-exam">🎓 Passer l'examen</button></div>
+    </div>
+  `;
 
   const rows = LESSONS.map((lesson) => {
     const quiz = progress.quizzes[lesson.id];
@@ -368,11 +496,13 @@ function renderProgress() {
       <p style="color:var(--muted);">
         ${totalQuizzes === 0
           ? "Fais ton premier quiz pour suivre tes progrès."
-          : `Tu as tenté ${totalQuizzes} quiz sur ${LESSONS.length}. Continue !`}
+          : `Tu as tenté ${totalQuizzes} quiz (leçons et examens) sur ${LESSONS.length + 1}. Continue !`}
       </p>
-      <div class="stat-grid">${rows}</div>
+      <div class="stat-grid">${examRow}${rows}</div>
     </section>
   `;
+
+  document.getElementById("progress-exam").addEventListener("click", () => setView("exam"));
 }
 
 initVersion();

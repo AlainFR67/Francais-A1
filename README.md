@@ -32,11 +32,13 @@ python3 -m http.server 8080
 - **Cours** : règle claire + exemples pour chaque leçon
 - **Cartes mémoire** : mot → définition, à retourner, avec progression
 - **Quiz** : choix multiples, questions et réponses mélangées, résultat détaillé
+- **Examen final** : 20 questions tirées au sort dans les 8 leçons, thème indiqué à chaque question, meilleur score et nombre de tentatives enregistrés
 - **Progression** : meilleur score par leçon et cartes consultées, sauvegardés dans le navigateur (localStorage), sans compte ni serveur
 - **Numéro de version** affiché en bas de page pour vérifier que tu utilises la dernière version
 
 ## Versions
 
+- **1.3.0** (build du 2026-11-20 à 09:58 UTC) : mode « Examen final » (20 questions mélangées des 8 leçons, thème par question, tentatives comptées)
 - **1.2.4** (build du 2026-11-20 à 09:56 UTC) : signature « … créée par son ami **Vibe Code** » en pied de page
 - **1.2.3** (build du 2026-11-20 à 09:54 UTC) : correctif anti-cache — les fichiers portent maintenant la version dans leur URL (?v=1.2.3)
 - **1.2.2** (build du 2026-11-20 à 09:50 UTC) : mention « Application suggérée par Alain et créée par son ami » en pied de page
