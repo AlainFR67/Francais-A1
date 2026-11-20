@@ -28,8 +28,8 @@ function defaultProgress() {
   return { quizzes: {}, cardsSeen: {} };
 }
 
-function saveProgress() {
-  localStorage.setItem(STORE_KEY, JSON.stringify(loadProgress()));
+function saveProgress(progress) {
+  localStorage.setItem(STORE_KEY, JSON.stringify(progress || loadProgress()));
 }
 
 const getLesson = (id) => LESSONS.find((l) => l.id === id);
@@ -197,7 +197,7 @@ function renderCards() {
   if (!progress.cardsSeen[lesson.id]) progress.cardsSeen[lesson.id] = 0;
   if (idx + 1 > progress.cardsSeen[lesson.id]) {
     progress.cardsSeen[lesson.id] = idx + 1;
-    saveProgress();
+    saveProgress(progress);
   }
 
   document.getElementById("fc").addEventListener("click", () => {
@@ -218,8 +218,7 @@ function renderCards() {
       state.cardFlipped = false;
       render();
     } else {
-      state.quizLessonId = id;
-      startQuiz(id);
+      startQuiz(lesson.id);
     }
   });
 }
@@ -312,7 +311,7 @@ function renderQuizResult() {
   const prev = progress.quizzes[lesson.id];
   const bestPercent = prev ? Math.max(prev.bestPercent, pct) : pct;
   progress.quizzes[lesson.id] = { bestPercent, lastPercent: pct };
-  saveProgress();
+  saveProgress(progress);
 
   app.innerHTML = `
     <button class="backlink" id="back">← Retour aux cours</button>
