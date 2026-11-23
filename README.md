@@ -26,7 +26,7 @@ python3 -m http.server 8080
 7. Les 3 groupes de verbes au présent (synthèse)
 8. Les nombres et l'heure
 9. La vie quotidienne (jours, mois, lieux)
-10. La France : culture et citoyenneté (devise, symboles, dates et personnes célèbres — questions type test de nationalité)
+10. La France : culture et citoyenneté (devise, symboles, valeurs ; 53 grandes dates de l'histoire et 70 personnes célèbres — questions type test de nationalité)
 11. Vocabulaire : les mots du quotidien (banque de 200 mots niveau A1 — 10 tirés au sort à chaque chargement)
 
 ### Niveau A2 (6 leçons)
@@ -65,6 +65,7 @@ python3 -m http.server 8080
 
 ## Versions
 
+- **2.4.0** (build du 2026-11-23 à 16:07 UTC) : leçon « La France : culture et citoyenneté » très enrichie — **53 grandes dates** de 481 (Clovis) à 2024 (Jeux olympiques de Paris et réouverture de Notre-Dame), organisées par époque (Moyen Âge, Révolution et Empire, XIXe, XXe, aujourd’hui), et **70 personnes célèbres** par domaine (12 écrivains, 5 philosophes, 8 rois et figures historiques, 8 politiques et bâtisseurs de la République, 10 scientifiques et inventeurs, 9 peintres sculpteurs et architecte, 10 musique cinéma et chanson, 8 sportifs et sportives) ; vocabulaire de la leçon porté de 10 à 24 cartes et quiz porté de 8 à 25 questions
 - **2.3.0** (build du 2026-11-20 à 14:51 UTC) : l'application s'appelle désormais « **Français pour Alinda** » (titre de page, en-tête) ; le pied de page précise la couverture complète des niveaux A1 → B2 (CECRL)
 - **2.2.0** (build du 2026-11-20 à 13:22 UTC) : ajout du niveau B2 (le subjonctif présent, le discours rapporté, module de vocabulaire « idées et langue soutenue ») et banques de vocabulaire portées à 200 mots par niveau (800 mots au total, 10 tirés au sort à chaque chargement)
 - **2.1.0** (build du 2026-11-20 à 13:05 UTC) : banques de 100 mots de vocabulaire par niveau (300 mots au total), dont 10 tirés au sort à chaque chargement de la page pour les cartes mémoire et le quiz du module vocabulaire

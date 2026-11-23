@@ -1,8 +1,8 @@
 "use strict";
 
-const APP_VERSION = "2.3.0";
-const APP_BUILD_DATE = "2026-11-20";
-const APP_BUILD_TIME = "14:51";
+const APP_VERSION = "2.4.0";
+const APP_BUILD_DATE = "2026-11-23";
+const APP_BUILD_TIME = "16:07";
 const LEVEL_STORE_KEY = "francais-a1-level";
 const EXAM_QUESTION_COUNT = 20;
 const EXAM_ID = "examen-final";
